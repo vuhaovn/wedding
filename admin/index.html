@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vn">
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta charset="UTF-8">
@@ -16,7 +17,9 @@
   <meta property="og:url" content="">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@400;700&display=swap"
+    rel="stylesheet">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -25,24 +28,54 @@
   <link rel="stylesheet" href="/css/magnific-popup.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="bg-slate-800">
+
+<body class="bg-gray-600">
 
   <div id="root" class="pt-5">
     <div class="inner">
-      <h2 class="text-3xl mb-3 text-slate-50">Danh sách lời chúc</h2>
-      <table class="table-auto">
-        <thead>
-          <tr>
-            <th class="text-left text-slate-300">Họ Tên</th>
-            <th class="text-left text-slate-300" colspan="2">Lời Chúc</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <form id="loginForm" class="max-w-xl mx-auto">
+        <h2 class="text-3xl text-white mb-5">Đăng nhập</h2>
+        <div class="flex">
+          <div class="w-1/3">
+            <label for="username" class="text-white">Tên người dùng:</label>
+          </div>
+          <div class="w-2/3">
+            <input type="text" id="username" name="username" required class="w-full px-3 py-1 rounded-md"><br><br>
+          </div>
+        </div>
+
+        <div class="flex">
+          <div class="w-1/3">
+            <label for="password" class="text-white">Mật khẩu:</label>
+          </div>
+          <div class="w-2/3">
+            <input type="password" id="password" name="password" required class="w-full px-3 py-1 rounded-md"><br><br>
+          </div>
+        </div>
+        <button type="button" onclick="authenticate()" class="text-white border py-2 px-4 rounded-md hover:bg-gray-800 transition-all">Đăng nhập</button>
+      </form>
+
+      <script>
+        function authenticate() {
+          // Lấy giá trị tên người dùng và mật khẩu từ form
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          // Kiểm tra xem tên người dùng và mật khẩu có đúng không
+          if (username === "tramhao" && password === "tramhao123") {
+            alert("Đăng nhập thành công!");
+            // Chuyển hướng đến trang admin
+            localStorage.setItem('username', JSON.stringify(username));
+            localStorage.setItem('password', JSON.stringify(password));
+            window.location.href = "list.html";
+          } else {
+            alert("Tên người dùng hoặc mật khẩu không đúng. Vui lòng thử lại.");
+          }
+        }
+      </script>
     </div>
   </div>
 
-  <script src="/js/crud.js" type="module"></script>
-
 </body>
+
 </html>
