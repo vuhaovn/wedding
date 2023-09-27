@@ -13,12 +13,7 @@ const nameSpan = document.querySelector('.modal-name');
 const containerEle = document.querySelector('table tbody');
 
 document.addEventListener('DOMContentLoaded', async (e) => {
-  const querySnapshot = await getUsers();
-  querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
-  });
   if (containerEle) {
-
     onGetUsers((querySnapshot) => {
       containerEle.innerHTML = "";
 

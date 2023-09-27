@@ -38,7 +38,7 @@
         $('nav a').removeClass('current');
         $('nav a[data-scroll="address"]').addClass('current');
 
-      } else if (scroll < $('#soluubut').offset().top) {
+      } else if (scroll < $('#soluubut').offset().top -1) {
 
         $('nav a').removeClass('current');
         $('nav a[data-scroll="album"]').addClass('current');
