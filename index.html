@@ -17,19 +17,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="/images/common/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="manifest" href="/images/site.webmanifest">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/magnific-popup.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="wrapper">
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <header>
       <nav>
         <a href="#introduce" data-scroll="introduce" class="current">Giới thiệu</a>
         <a href="#time" data-scroll="time">Thời gian</a>
         <a href="#address" data-scroll="address">Địa điểm</a>
         <a href="#album" data-scroll="album">Album</a>
+        <a href="#soluubut" data-scroll="soluubut">Gửi lời chúc</a>
       </nav>
     </header>
     <main>
@@ -131,14 +140,51 @@
           </div>
         </div>
       </section>
+      <section id="soluubut" class="soluubut">
+        <div class="soluubut_inner flex-wrap">
+          <div>
+            <h3 class="text-lg mb-2">Cám ơn những lời chúc yêu thương cho cô dâu và chú rễ</h3>
+            <form id="submitForm" method="post">
+              <div class="form">
+                <div class="form_item">
+                  <label>Họ tên:</label>
+                  <input type="text" name="name">
+                </div>
+                <div class="form_item">
+                  <label>Lời chúc:</label>
+                  <textarea cols="30" rows="5" name="description"></textarea>
+                </div>
+                <input type="submit" value="Gửi">
+              </div>
+            </form>
+          </div>
+          <div class="soluubut_bank">
+            <h3 class="text-lg mb-2">Gửi quà yêu thương cho cô dâu và chú rễ</h3>
+            <img src="" alt="">
+            <img src="/images/acb_trang.png" alt="">
+          </div>
+          <div class="w-full">
+            <img src="/images/lovepik.png" alt="" class="w-72 mx-auto">
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
       <p>Copyright &copy; 2023 by Bakahao</p>
     </footer>
   </div>
 
+  <div id="modal">
+    <div class="modal-inner">
+      <button class="modal-close">Tắt</button>
+      <p>Lời chúc được gửi thành công, cám ơn <span class="modal-name">{name}</span></p>
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="/js/jquery.magnific-popup.min.js"></script>
   <script src="/js/script.js"></script>
+  <script src="/js/crud.js" type="module"></script>
+
 </body>
 </html>

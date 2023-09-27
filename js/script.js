@@ -8,6 +8,8 @@
       const target = $(href == "#" || href == "" ? 'html' : href);
       const position = target.offset().top;
       $('body,html').animate({scrollTop:position}, speed, 'swing');
+      $('header').removeClass('active');
+      $('.hamburger').removeClass('active');
       return false;
     });
 
@@ -36,10 +38,15 @@
         $('nav a').removeClass('current');
         $('nav a[data-scroll="address"]').addClass('current');
 
-      } else {
+      } else if (scroll < $('#soluubut').offset().top) {
 
         $('nav a').removeClass('current');
         $('nav a[data-scroll="album"]').addClass('current');
+
+      } else {
+
+        $('nav a').removeClass('current');
+        $('nav a[data-scroll="soluubut"]').addClass('current');
 
       }
     });
@@ -52,7 +59,16 @@
       }
     });
 
-    var numFlowers = 50;
+    $('.modal-close').on('click', function() {
+      $('#modal').hide();
+    });
+
+    $('.hamburger').on('click', function() {
+      $(this).toggleClass('active');
+      $('header').toggleClass('active');
+    });
+
+    var numFlowers = 20;
 
     // Hàm để tạo hoa mới và thêm vào trang
     function createFlower() {

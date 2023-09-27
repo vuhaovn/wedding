@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   font-family: "Lora", serif;
 }
@@ -14,6 +13,50 @@ img {
 @media screen and (min-width: 769px) {
   .hover:hover img {
     opacity: 0.7;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 50px;
+    right: 0;
+    z-index: 3;
+    cursor: pointer;
+  }
+  .hamburger span {
+    width: calc(100% - 10px);
+    height: 2px;
+    background-color: #fff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    position: absolute;
+    left: 5px;
+  }
+  .hamburger span:nth-child(1) {
+    top: 10px;
+  }
+  .hamburger span:nth-child(2) {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .hamburger span:nth-child(3) {
+    bottom: 10px;
+  }
+  .hamburger.active span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(45deg);
+            transform: translateY(10px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-8px) rotate(-45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
   }
 }
 
@@ -35,15 +78,22 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 @media screen and (max-width: 768px) {
   header {
     width: 100%;
+    height: 100vh;
     padding: 5.3333333333vw;
     top: 0;
     -webkit-transform: translateY(0);
             transform: translateY(0);
-    background-color: transparent;
+    background-color: #000;
+    left: 100%;
+  }
+  header.active {
+    left: 0;
   }
 }
 header nav {
@@ -60,27 +110,17 @@ header nav {
 @media screen and (max-width: 768px) {
   header nav {
     gap: 5.3333333333vw;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-}
-@media screen and (max-width: 768px) {
-  header nav.black {
-    color: #000;
-  }
-  header nav.black a.current::before {
-    background-color: #000;
-  }
-  header nav.black a::before {
-    background-color: #000;
   }
 }
 header nav a {
   display: inline-block;
   position: relative;
   text-align: center;
+}
+@media screen and (max-width: 768px) {
+  header nav a {
+    font-size: 20px;
+  }
 }
 header nav a::before {
   content: "";
@@ -158,7 +198,7 @@ section:not(.album)::before {
   left: 0;
   z-index: -1;
 }
-section:not(.album)::after {
+section::after {
   content: "";
   display: block;
   width: 100%;
@@ -177,7 +217,8 @@ section:not(.album)::after {
   background: url("/images/bg2.jpg") no-repeat center right/cover;
 }
 
-#address::after {
+#address::after,
+.soluubut::after {
   background: url("/images/bg3.jpg") no-repeat center center/cover;
 }
 
@@ -372,6 +413,8 @@ section:not(.album)::after {
 }
 .album_list a {
   width: calc(25% - 8px);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
 }
 @media screen and (max-width: 768px) {
   .album_list a {
@@ -379,12 +422,34 @@ section:not(.album)::after {
   }
 }
 
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 .flower {
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: #fff; /* Màu sắc của hoa */
-  border-radius: 50%; /* Để tạo hình dáng hoa tròn */
+  width: 20px;
+  height: 20px;
+  background: url("/images/18.png") no-repeat 0 0/cover;
+  -webkit-animation: rotate 10s infinite;
+          animation: rotate 10s infinite;
 }
 
 .tree {
@@ -436,4 +501,159 @@ section:not(.album)::after {
   bottom: 0;
   right: 0;
   max-width: 80px;
+}
+
+.soluubut_inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+  .soluubut_inner {
+    display: block;
+    padding: 10px;
+  }
+}
+.soluubut_bank {
+  max-width: 250px;
+  margin-left: 20px;
+}
+@media screen and (max-width: 768px) {
+  .soluubut_bank {
+    margin: 20px 0 0;
+    max-width: none;
+  }
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.form_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+.form label {
+  margin-bottom: 10px;
+}
+.form input,
+.form textarea {
+  padding: 7px 10px;
+  border-radius: 7px;
+  border: 1px solid #ff80d5;
+}
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+}
+.form input[type=submit] {
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #ff80d5;
+  color: #fff;
+}
+.form input[type=submit]:hover {
+  background-color: #ff4dc4;
+}
+
+#modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  display: none;
+}
+#modal::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#modal .modal-inner {
+  font-size: 20px;
+  padding: 30px 15px;
+  background-color: #fff;
+  max-width: 320px;
+  position: relative;
+}
+#modal .modal-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+#modal .modal-close {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px"><path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"/></svg>') no-repeat 0 0;
+}
+
+.inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+table th, table td {
+  border-top: 1px solid #ccc;
+  padding: 10px;
+}
+table th {
+  font-weight: normal;
+}
+
+.btn-delete {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0 10px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #fff;
+}
+.btn-delete:hover {
+  background-color: #ccc;
 }/*# sourceMappingURL=style.css.map */

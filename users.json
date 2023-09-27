@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Superman",
+      "description": "Hello guy, I'm Superman"
+    },
+    {
+      "id": 2,
+      "name": "The Flash",
+      "description": "Hello guy, I'm The Flash"
+    },
+    {
+      "id": 3,
+      "name": "Batman",
+      "description": "Hello guy, I'm Batman"
+    }
+  ]
+}
