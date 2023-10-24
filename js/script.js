@@ -51,6 +51,21 @@
       }
     });
 
+    var parallaxBg = $('#introduce');
+
+    function updateParallax() {
+      var scrollPosition = $(window).scrollTop();
+      parallaxBg.css('background-position', 'center calc(50% + ' + scrollPosition / 2 + 'px)');
+    }
+
+    // Gọi hàm updateParallax khi trang được cuộn
+    $(window).on('scroll', function () {
+      requestAnimationFrame(updateParallax);
+    });
+
+    // Gọi hàm đầu tiên để thiết lập vị trí ban đầu của background
+    updateParallax();
+
     $('.album_list').magnificPopup({
       delegate: 'a', // child items selector, by clicking on it popup will open
       type: 'image',
@@ -68,7 +83,7 @@
       $('header').toggleClass('active');
     });
 
-    var numFlowers = 20;
+    var numFlowers = 2;
 
     // Hàm để tạo hoa mới và thêm vào trang
     function createFlower() {
@@ -96,6 +111,13 @@
     for (var i = 0; i < numFlowers; i++) {
       createFlower();
     }
+
+    setInterval(function () {
+      if (numFlowers < 50) {
+        numFlowers += 5; // Tăng số lượng hoa mỗi lần
+        createFlower(); // Thêm hoa mới
+      }
+    }, 2000); // Mỗi 3 giây thêm hoa mới
 
   })
 

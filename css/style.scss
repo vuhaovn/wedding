@@ -240,19 +240,16 @@ section {
 }
 
 #introduce {
-  &::after {
-    background: url("/images/bg1.jpg") no-repeat center center/cover
-  }
+  background: url("/images/bg1.jpg") no-repeat center center/cover
 }
 
 #time {
   &::after {
-    background: url("/images/bg2.jpg") no-repeat center right/cover
+    background: url("/images/bg2.jpg") no-repeat center center/cover
   }
 }
 
-#address,
-.soluubut {
+#address {
   &::after {
     background: url("/images/bg3.jpg") no-repeat center center/cover
   }
@@ -412,6 +409,10 @@ section {
   // &::after {
   //   background: url("/images/17.png") no-repeat center bottom/contain
   // }
+  .inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
 
   &_item {
     margin-top: 20px;
@@ -504,6 +505,9 @@ section {
 }
 
 .soluubut {
+  &::before {
+    background-color: rgba($color: #ff80d5, $alpha: 0.3) !important;
+  }
   &_inner {
     display: flex;
     justify-content: center;
