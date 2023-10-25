@@ -245,7 +245,10 @@ section {
 
 #time {
   &::after {
-    background: url("/images/bg2.jpg") no-repeat center center/cover
+    background: url("/images/bg2.jpg") no-repeat center center/cover;
+    @include media-max($break-point) {
+      background-position-x: 70%;
+    }
   }
 }
 

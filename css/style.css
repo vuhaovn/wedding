@@ -183,6 +183,11 @@ section::after {
 #time::after {
   background: url("/images/bg2.jpg") no-repeat center center/cover;
 }
+@media screen and (max-width: 768px) {
+  #time::after {
+    background-position-x: 70%;
+  }
+}
 
 #address::after {
   background: url("/images/bg3.jpg") no-repeat center center/cover;
