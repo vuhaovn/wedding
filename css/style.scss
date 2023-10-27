@@ -1,4 +1,5 @@
 $break-point: 768px;
+$color-secondary: #cee5ed;
 
 @mixin media-max($width) {
   @media screen and (max-width: $width) {
@@ -323,17 +324,6 @@ section {
   margin-bottom: 180px;
   position: relative;
 
-  &::after {
-    content: "";
-    display: block;
-    width: 9999px;
-    height: 3px;
-    background-color: #fff;
-    position: absolute;
-    left: -200%;
-    top: 140%;
-  }
-
   figure {
     display: flex;
     flex-direction: column;
@@ -509,7 +499,7 @@ section {
 
 .soluubut {
   &::before {
-    background-color: rgba($color: #ff80d5, $alpha: 0.3) !important;
+    background-color: rgba($color: $color-secondary, $alpha: 0.2) !important;
   }
   &_inner {
     display: flex;
@@ -554,7 +544,7 @@ section {
   textarea {
     padding: 7px 10px;
     border-radius: 7px;
-    border: 1px solid #ff80d5;
+    border: 1px solid $color-secondary;
     &:focus {
       outline: none;
     }
@@ -563,10 +553,10 @@ section {
   input[type='submit'] {
     cursor: pointer;
     transition: all 0.3s;
-    background-color: #ff80d5;
+    background-color: #9dd6eb;
     color: #fff;
     &:hover {
-      background-color: #ff4dc4;
+      background-color: #75cbeb;
     }
   }
 }
